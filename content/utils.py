@@ -15,5 +15,6 @@ def get_properties(content):
     result = " ".join(soup.stripped_strings)
     image = None
     if soup.find(itemprop="image"):
-        image = soup.find(itemprop="image").find('meta').attrs['content']
+        image_meta = soup.find(itemprop="image").find('meta')
+        image = image_meta.attrs['content'] if image_meta else None
     return soup.title.string, result, summarize(result), image

@@ -5,7 +5,7 @@ from datetime import datetime
 from django.core.validators import URLValidator
 
 def home(request):
-    contents = Content.objects.prefetch_related('media_set').all()
+    contents = Content.objects.prefetch_related('media_set').all().order_by('-id')
     return render(request, 'home.html', {"contents":contents})
 
 
@@ -14,10 +14,10 @@ def search(request):
     try:
         if url and URLValidator(url):
             crawl_website(url)
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
-    contents = Content.objects.prefetch_related('media_set').all()
+    contents = Content.objects.prefetch_related('media_set').all().order_by('-id')
     return render(request, 'home.html', {"contents": contents})
 
 

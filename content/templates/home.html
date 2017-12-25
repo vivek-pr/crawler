@@ -32,9 +32,11 @@
                             {{content.title}}
                         </h2>
                     </a>
+                    {% if content.media_set.all %}
                     <div class="ibox-content no-padding border-left-right">
                         <img alt="image" class="img-responsive" src="{{content.media_set.all.0.url}}">
                     </div>
+                    {% endif %}
                     <div class="small m-b-xs">
                         <span class="text-muted"><i class="fa fa-clock-o"></i> {{content.created_at}}</span>
                     </div>
@@ -63,9 +65,11 @@
                             {{content.title}}
                         </h2>
                     </a>
+                    {% if content.media_set.all %}
                     <div class="ibox-content no-padding border-left-right">
                         <img alt="image" class="img-responsive" src="{{content.media_set.all.0.url}}">
                     </div>
+                    {% endif %}
                     <div class="small m-b-xs">
                         <span class="text-muted"><i class="fa fa-clock-o"></i> {{content.created_at}}</span>
                     </div>
@@ -97,9 +101,11 @@
                             {{content.title}}
                         </h2>
                     </a>
+                    {% if content.media_set.all %}
                     <div class="ibox-content no-padding border-left-right">
                         <img alt="image" class="img-responsive" src="{{content.media_set.all.0.url}}">
                     </div>
+                    {% endif %}
                     <div class="small m-b-xs">
                         <span class="text-muted"><i class="fa fa-clock-o"></i> {{content.created_at}}</span>
                     </div>
