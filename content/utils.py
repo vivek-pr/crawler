@@ -1,11 +1,12 @@
 from bs4 import BeautifulSoup
-import requests
+import urllib3
 from .summary import *
 
 
 def get_page(url):
-    resp = requests.get(url)
-    return resp.content
+    http = urllib3.PoolManager()
+    response = http.request('GET', url)
+    return response.data
 
 
 def get_properties(content):
